@@ -2,6 +2,9 @@
 
 :root {
     font-size: 10px;
+    --button-color: #3B3B3B;
+    --text-color: #fafafa;
+    --background-color: #000000;
 }
 
 *,
@@ -13,11 +16,152 @@
 body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
-    background-color: #fafafa;
-    color: #262626;
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding-bottom: 3rem;
+    cursor: default;
 }
 
 img {
     display: block;
+    max-width: 100%;
+    cursor: pointer;
 }
+
+.container {
+    max-width: 93.5rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+/* ! Profile */
+
+/* Profile grid */
+.container .profile {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 30% 70% ;
+    grid-template-rows: repeat(3, 3rem);
+    gap: 2rem;
+    padding: 3rem;
+
+
+}
+
+.profile-image {
+    grid-column: 1/ 1 /span 3 /span 1;
+        /* grid-row: 1/ span 3; */
+}
+
+.profile-user-settings {
+    grid-column: 1/ 2/ span1 /span 1;
+    /* grid-row: 1/span 1; */
+}
+
+
+.profile-stats {
+    grid-area: 2/ 2 / span 1 /span 1;
+   /*  grid-row: 2/ span 1; */
+}
+
+.profile-bio {
+    grid-area: 3/2/span1/span1
+  }
+
+/* Profile Visual edits */
+
+.btn {
+    background: var(--button-color);
+    font-weight: bold;
+    border: transparent ;
+    border-radius: 0.5rem;
+    display: inline-block;
+    color: var(--text-color);
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    cursor: pointer;  /* changes pointer when hovering over a button */
+}
+
+.btn:hover {
+    background-color: #292929;
+}
+
+.profile-user-name {
+    font-size: 20px;
+    font-weight: lighter;
+
+}
+
+.profile-image{
+    display: flex; 
+    float: left;
+    width: 15rem; 
+    height: 15rem; 
+
+}
+.profile-image img {
+    border-radius: 50%;
+}
+
+.profile-stats ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: medium;
+    list-style-type: none;
+}
+
+.profile-bio { 
+    font-size: medium;
+}
+
+.profile-real-name {
+    font-weight:bold;
+}
+
+.profile-user-settings{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+
+/* ! Gallery */
+
+/* Gallery Grid */
+.container .gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Images and info */
+.gallery-item img {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+}
+
+
+/* ! Loading wheel */
+.loader {
+    width: 5rem;
+    height: 5rem;
+    border: 1rem solid transparent;
+    margin-left: 50%;
+    margin-right: 50%;
+    border-radius: 50%; /* note, this radius transforms the icon into a circle */
+    border-bottom: 1rem solid darkgrey; /* either border-bottom or border-top works fine, */
+    animation: loading 1s ease-in-out infinite;
+}
+@keyframes loading {
+    100% {transform:rotate(360deg) ;}
+}
+
