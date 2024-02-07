@@ -43,30 +43,29 @@ img {
     grid-template-columns: 30% 70% ;
     grid-template-rows: repeat(3, 3rem);
     gap: 2rem;
-    padding: 3rem;
-
+    max-width: 93.5rem;
+    padding: 0 2rem;
+    margin: 0 auto;
 
 }
 
 .profile-image {
     grid-column: 1/ 1 /span 3 /span 1;
-        /* grid-row: 1/ span 3; */
 }
 
 .profile-user-settings {
     grid-column: 1/ 2/ span1 /span 1;
-    /* grid-row: 1/span 1; */
 }
 
 
 .profile-stats {
     grid-area: 2/ 2 / span 1 /span 1;
-   /*  grid-row: 2/ span 1; */
 }
 
 .profile-bio {
     grid-area: 3/2/span1/span1
   }
+
 
 /* Profile Visual edits */
 
@@ -135,18 +134,26 @@ img {
     margin-bottom: 4rem;
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 93.5rem;
+    padding: 0 2rem;
+   
 }
 
 /* Images and info */
-.gallery-item img {
+.gallery-item .gallery-image {
     width: 25rem;
     height: 25rem;
     object-fit: cover;
 }
+.gallery-item:hover .gallery-item-info {
+    display: flex;
+    align-items:center;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
-.visually-hidden {
-    position: absolute;
-    overflow: hidden;
+.gallery-item-info {
+    display:none;
 }
 
 
@@ -164,4 +171,3 @@ img {
 @keyframes loading {
     100% {transform:rotate(360deg) ;}
 }
-
